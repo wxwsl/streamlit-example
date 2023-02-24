@@ -7,7 +7,7 @@ from firebase_admin import db
 
 cred=os.environ.get("FIREBASE_KEY")
 firebase_key_json = json.loads(os.environ.get("FIREBASE_KEY"))
-#cred = service_account.Credentials.from_service_account_info(firebase_key_json)
+cred = service_account.Credentials.from_service_account_info(firebase_key_json)
 
 
 st.write(cred)
