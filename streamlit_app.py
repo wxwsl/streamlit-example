@@ -16,13 +16,3 @@ ref = db.reference('/')
 ref.set({
     'message': 'Hello, World!'
 })
-# 连接到 Realtime Database
-
-
-# 读取数据
-data = ref.get()
-import streamlit as st
-import pandas as pd
-
-df = pd.DataFrame.from_dict(data)
-st.write(df)
