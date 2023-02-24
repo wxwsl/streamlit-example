@@ -6,7 +6,7 @@ from firebase_admin import db
 cred = credentials.Certificate("mydata-7c783-77425a396005.json")
 try:
     firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://mydata-7c783.firebaseio.com'
+    'databaseURL': 'https://mydata-7c783-default-rtdb.firebaseio.com'
 })
 except ValueError:
     pass
