@@ -15,4 +15,5 @@ except ValueError:
 ref = db.reference('/')
 ref.set({
     'message': 'ok, World!'
+     'age': 'ok, World!'
 })
