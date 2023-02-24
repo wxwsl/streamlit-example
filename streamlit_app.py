@@ -4,3 +4,6 @@ from firebase_admin import db
 
 # 初始化 Firebase 服务帐户凭据
 cred = credentials.Certificate("mydata-7c783-77425a396005.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://mydata-7c783.firebaseio.com'
+})
