@@ -43,11 +43,4 @@ import pandas as pd
 data = ref.get()
 df = pd.DataFrame.from_dict(data, orient='index')
 st.write(df)
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Se
-
 st.write(cert_dict )
