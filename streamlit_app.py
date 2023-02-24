@@ -1,6 +1,7 @@
 import os
 import firebase_admin
 import json
+import streamlit as st
 from firebase_admin import credentials
 from firebase_admin import db
 os.environ.get("FIREBASE_KEY")
