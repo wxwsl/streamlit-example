@@ -5,6 +5,9 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 
-firebase_key_json = json.loads(os.environ.get("FIREBASE_KEY"))
 
-st.write(firebase_key_json)
+
+my_var = os.environ.get('FIREBASE_KEY')
+
+# 显示环境变量值
+st.write('My variable:', my_var)
