@@ -14,6 +14,9 @@ from google.oauth2 import service_account
 firebase_key = os.environ.get("FIREBASE_KEY")
 cert_dict = json.loads(firebase_key)
 
-# 初始化Firebase应用程序
-cred = credentials.Certificate(cert_dict)
+with open("mydata-7c783-77425a396005.json", "r") as f:
+    data = json.load(f)
+
+# 显示 JSON 数据
+st.write(data)
 st.write(cert_dict )
