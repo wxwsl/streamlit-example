@@ -14,5 +14,5 @@ except ValueError:
 # 写入数据
 ref = db.reference('/')
 ref.set({
-    'message': 'Hello, World!'
+    'message': 'ok, World!'
 })
