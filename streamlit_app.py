@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.write("这是一句话。")
+st.write("你好。")
