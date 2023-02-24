@@ -15,5 +15,5 @@ firebase_key = os.environ.get("FIREBASE_KEY")
 cert_dict = json.loads(firebase_key)
 
 # 初始化Firebase应用程序
-#cred = credentials.Certificate(cert_dict)
+cred = credentials.Certificate(cert_dict)
 st.write(cert_dict )
