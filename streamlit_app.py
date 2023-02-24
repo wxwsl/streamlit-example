@@ -10,8 +10,14 @@ try:
 })
 except ValueError:
     pass
-# 连接到 Realtime Database
+
+# 写入数据
 ref = db.reference('/')
+ref.set({
+    'message': 'Hello, World!'
+})
+# 连接到 Realtime Database
+
 
 # 读取数据
 data = ref.get()
