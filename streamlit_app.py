@@ -13,5 +13,6 @@ from google.oauth2 import service_account
 
 firebase_key = os.environ.get("FIREBASE_KEY")
 cert_dict = json.loads(firebase_key)
+cred = credentials.Certificate(cert_dict)
 
 st.write(cert_dict )
