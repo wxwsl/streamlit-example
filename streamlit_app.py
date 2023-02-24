@@ -5,13 +5,8 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 
-
-
 firebase_key = os.environ.get("FIREBASE_KEY")
-cert_dict = json.loads(firebase_key)
-
-# 初始化Firebase应用程序
-cred = credentials.Certificate(cert_dict)
+cred = credentials.Certificate(firebase_key)
 try:
     firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://mydata-7c783-default-rtdb.firebaseio.com'
