@@ -21,3 +21,8 @@ ref.set({
 
 # 读取数据
 data = ref.get()
+import streamlit as st
+import pandas as pd
+
+df = pd.DataFrame.from_dict(data)
+st.write(df)
