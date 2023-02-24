@@ -23,3 +23,11 @@ ref.set({
         'description': 'This is group 2'
     }
 })
+
+import streamlit as st
+import pandas as pd
+
+
+data = ref.get()
+df = pd.DataFrame.from_dict(data, orient='index')
+st.write(df)
