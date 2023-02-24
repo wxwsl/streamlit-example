@@ -9,3 +9,8 @@ try:
 })
 except ValueError:
     pass
+# 连接到 Realtime Database
+ref = db.reference('/')
+
+# 读取数据
+data = ref.get()
