@@ -2,3 +2,5 @@ altair
 pandas
 streamlit
 firebase-admin
+google-auth
+google-auth-oauthlib
