@@ -43,4 +43,4 @@ import pandas as pd
 data = ref.get()
 df = pd.DataFrame.from_dict(data, orient='index')
 st.write(df)
-st.write(cert_dict )
+
