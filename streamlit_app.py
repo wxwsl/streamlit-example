@@ -14,6 +14,12 @@ except ValueError:
 # 写入数据
 ref = db.reference('/')
 ref.set({
-    'message': 'ok, World!'
-     'age': 'ok, World!'
+    'group1': {
+        'name': 'Group 1',
+        'description': 'This is group 1'
+    },
+    'group2': {
+        'name': 'Group 2',
+        'description': 'This is group 2'
+    }
 })
