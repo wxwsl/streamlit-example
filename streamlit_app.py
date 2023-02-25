@@ -35,6 +35,13 @@ ref = db.reference('/')
   ###      'description': 'This is group 2'
    ## }
 #})
+import datetime
+
+# 获取当前时间
+now = datetime.datetime.now()
+
+# 将时间转换为字符串
+time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
 
 # 创建输入文本框
@@ -43,7 +50,7 @@ text_input = st.text_input("请输入您的文本")
 # 创建提交按钮
 if st.button("提交"):
    
-    ref.set({"text": text_input})
+    ref.set({time_str: text_input})
 
     # 显示成功消息
     st.success("文本已保存到数据库！")
