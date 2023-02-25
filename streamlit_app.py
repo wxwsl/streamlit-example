@@ -76,7 +76,7 @@ st.write(df)
 data = ref.get()
 
 # Display the data in Streamlit
-st.header('My data')
+st.header('mydata-7c783')
 if data:
     for key, value in data.items():
         st.write('Key:', key)
