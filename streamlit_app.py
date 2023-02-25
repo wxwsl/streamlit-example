@@ -1,7 +1,7 @@
 
 
 import streamlit as st
-from streamlit.server.server import Server
+from streamlit import Server
 import requests
 
 # Get the client's IP address from the request headers
