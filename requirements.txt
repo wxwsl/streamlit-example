@@ -7,3 +7,4 @@ google-auth-oauthlib
 geopy==2.2.0
 ipinfo
 flask
+requests
