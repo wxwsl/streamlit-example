@@ -45,18 +45,26 @@ time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
 
 # 创建输入文本框
-text_input = st.text_input("请输入您的文本")
+st.header('Add new data')
+name = st.text_input('Name')
+age = st.number_input('Age', min_value=0, max_value=120)
+email = st.text_input('Email')
 
-# 创建提交按钮
-if st.button("提交"):
-   
-    ref.set({time_str: text_input})
+# Define behavior when user clicks the "Add" button
+if st.button('Add'):
+    # Define new data to be added
+    new_data = {
+        'name': name,
+        'age': age,
+        'email': email
+    }
 
-    # 显示成功消息
-    st.success("文本已保存到数据库！")
+    # Push the new data to the database with a new unique key
+    new_ref = ref.push(new_data)
+    st.success('New data added with key: {}'.format(new_ref.key))
 
 
-import streamlit as st
+
 import pandas as pd
 
 
