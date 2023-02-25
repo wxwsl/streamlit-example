@@ -85,5 +85,5 @@ if data_dict:
         st.write('Email:', value['email'])
         st.write('---')
 else:
-    st.write('No data found'))
+    st.write('No data found')
 
