@@ -1,16 +1,15 @@
-from geopy.geocoders import Nominatim
-
-geolocator = Nominatim(user_agent="myapp")
 import streamlit as st
+from streamlit.components.v1 import html
 
-# Prompt user for their address
-address = st.text_input('Please enter your address')
+js_code = """
+navigator.geolocation.getCurrentPosition(function(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const accuracy = position.coords.accuracy;
+    const data = {'latitude': latitude, 'longitude': longitude, 'accuracy': accuracy};
+    const event = new CustomEvent('location', {detail: data});
+    document.dispatchEvent(event);
+});
+"""
 
-# When user clicks the 'Submit' button, get their location
-if st.button('Submit'):
-    location = geolocator.geocode(address)
-    if location:
-        st.write('Your latitude:', location.latitude)
-        st.write('Your longitude:', location.longitude)
-    else:
-        st.write('Sorry, we could not find your location.')
+html_code = html('<script>{}</script>'.format(js_code))
