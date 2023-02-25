@@ -4,3 +4,4 @@ streamlit
 firebase-admin
 google-auth
 google-auth-oauthlib
+geopy==2.2.0
