@@ -1,31 +1,16 @@
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="myapp")
 import streamlit as st
-from streamlit.components.v1 import html
 
-# Define JavaScript code to get user location
-jscode = """
-navigator.geolocation.getCurrentPosition(
-    function(position) {
-        const latitude  = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const accuracy  = position.coords.accuracy;
-        const location  = {'latitude': latitude, 'longitude': longitude, 'accuracy': accuracy};
-        const locationJson = JSON.stringify(location);
-        window.Streamlit.setComponentValue(locationJson);
-    }
-);
-"""
+# Prompt user for their address
+address = st.text_input('Please enter your address')
 
-# Display the JavaScript code using the html component
-html_code = html('<script>{}</script>'.format(jscode))
-
-# Wait for the user to share their location
-location_json = st.dg.run_js(html_code)
-
-# Parse the JSON data and display it in Streamlit
-if location_json:
-    location = json.loads(location_json)
-    st.write('Latitude:', location['latitude'])
-    st.write('Longitude:', location['longitude'])
-    st.write('Accuracy:', location['accuracy'])
-else:
-    st.write('No location data received.')
+# When user clicks the 'Submit' button, get their location
+if st.button('Submit'):
+    location = geolocator.geocode(address)
+    if location:
+        st.write('Your latitude:', location.latitude)
+        st.write('Your longitude:', location.longitude)
+    else:
+        st.write('Sorry, we could not find your location.')
