@@ -15,3 +15,8 @@ details = handler.getDetails(client_ip)
 details.city
 details.country
 details.loc
+
+
+
+client_ip = requests.get('https://api.ipify.org').text
+st.write('Client IP Address:', client_ip)
