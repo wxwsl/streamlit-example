@@ -72,3 +72,18 @@ data = ref.get()
 df = pd.DataFrame.from_dict(data, orient='index')
 st.write(df)
 
+
+data = ref.get()
+
+# Display the data in Streamlit
+st.header('My data')
+if data:
+    for key, value in data.items():
+        st.write('Key:', key)
+        st.write('Name:', value['name'])
+        st.write('Age:', value['age'])
+        st.write('Email:', value['email'])
+        st.write('---')
+else:
+    st.write('No data found')
+
