@@ -24,17 +24,17 @@ except ValueError:
     pass
 
 # 写入数据
-ref = db.reference('/')
-ref.set({
-    'group1': {
-        'name': 'Group 1',
-        'description': 'This is group 1'
-    },
-    'group2': {
-        'name': 'Group 2',
-        'description': 'This is group 2'
-    }
-})
+####ref = db.reference('/')
+###ref.set({
+#    'group1': {
+ #######       'name': 'Group 1',
+#        'description': 'This is group 1'
+ #####   },
+ ######   'group2': {
+  ####      'name': 'Group 2',
+  ###      'description': 'This is group 2'
+   ## }
+#})
 
 
 # 创建输入文本框
