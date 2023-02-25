@@ -1,22 +1,20 @@
-import requests
+
+
 import streamlit as st
-ip_request = requests.get('https://ipapi.co/ip/')
-client_ip = ip_request.text
-print("Client IP Address:", client_ip)
+from streamlit.server.server import Server
+import requests
 
-st.write(client_ip)
+# Get the client's IP address from the request headers
+def get_client_ip():
+    session_id = st.session_state.report_id
+    ctx = get_report_ctx()
+    if ctx is None:
+        return None
+    this_session = Server.get_current()._get_session_info(session_id)
+    if this_session is None:
+        return None
+    request_headers = this_session.ws.request.headers
+    return request_headers.get("X-Forwarded-For", "").split(",")[-1].strip()
 
-
-import ipinfo
-access_token = 'fd7290568d6d4f'
-handler = ipinfo.getHandler(access_token)
-ip_address = client_ip
-details = handler.getDetails(client_ip)
-details.city
-details.country
-details.loc
-
-
-
-client_ip = requests.get('https://api.ipify.org').text
+client_ip = get_client_ip()
 st.write('Client IP Address:', client_ip)
