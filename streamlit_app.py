@@ -73,17 +73,20 @@ df = pd.DataFrame.from_dict(data, orient='index')
 st.write(df)
 
 
+import pandas as pd
 data = ref.get()
 
-data_dict = data
-
-if data_dict:
-    for key, value in data_dict.items():
-        st.write('Key:', key)
-        st.write('Name:', value['name'])
-        st.write('Age:', value['age'])
-        st.write('Email:', value['email'])
-        st.write('---')
+if isinstance(data, dict):
+    data_dict = json.loads(json.dumps(data))
+    if data_dict:
+        for key, value in data_dict.items():
+            st.write('Key:', key)
+            st.write('Name:', value['name'])
+            st.write('Age:', value['age'])
+            st.write('Email:', value['email'])
+            st.write('---')
+    else:
+        st.write('No data found')
 else:
     st.write('No data found')
 
