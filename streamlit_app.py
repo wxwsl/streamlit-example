@@ -1,24 +1,28 @@
-import streamlit as st
-from streamlit.components.v1 import html
-
-# 定义 JavaScript 代码，获取用户地理位置
-jscode = """
-navigator.geolocation.getCurrentPosition(
-    function(position) {
-        const latitude  = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const accuracy  = position.coords.accuracy;
-        const location  = {'latitude': latitude, 'longitude': longitude, 'accuracy': accuracy};
-        const locationJson = JSON.stringify(location);
-        window.location.href = "streamlit://location=" + encodeURIComponent(locationJson);
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>获取地理位置</title>
+</head>
+<body>
+  <p>点击下面的按钮获取您的位置：</p>
+  <button onclick="getLocation()">获取位置</button>
+  <p id="location"></p>
+  
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        document.getElementById("location").innerHTML = "您的浏览器不支持获取位置信息。";
+      }
     }
-);
-"""
 
-# 显示 JavaScript 代码
-html_code = html('<script>{}</script>'.format(jscode))
-
-# 等待用户分享其位置
-location_json = st._get_streamlit_share_request('location')
-
-
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("location").innerHTML = "您的位置是：" + latitude + ", " + longitude;
+    }
+  </script>
+</body>
+</html>
