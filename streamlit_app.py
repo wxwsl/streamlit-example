@@ -36,6 +36,23 @@ ref.set({
     }
 })
 
+
+# 创建输入文本框
+text_input = st.text_input("请输入您的文本")
+
+# 创建提交按钮
+if st.button("提交"):
+    # 获取 Firestore 数据库的引用
+    db = firestore.client()
+
+    # 将文本保存到数据库
+    doc_ref = db.collection("my_collection").document()
+    doc_ref.set({"text": text_input})
+
+    # 显示成功消息
+    st.success("文本已保存到数据库！")
+
+
 import streamlit as st
 import pandas as pd
 
