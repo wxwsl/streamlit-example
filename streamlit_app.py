@@ -75,10 +75,12 @@ st.write(df)
 
 data = ref.get()
 
-# Display the data in Streamlit
-st.header('mydata-7c783')
-if data:
-    for key, value in data.items():
+data_dict = json.loads(data)
+
+# Iterate over the dictionary
+if data_dict:
+    for key, value in data_dict.items():
+        # Display the data
         st.write('Key:', key)
         st.write('Name:', value['name'])
         st.write('Age:', value['age'])
