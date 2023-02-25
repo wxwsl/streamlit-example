@@ -13,4 +13,5 @@ handler = ipinfo.getHandler(access_token)
 ip_address = client_ip
 details = handler.getDetails(client_ip)
 details.city
+details.country
 details.loc
