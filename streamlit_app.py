@@ -75,17 +75,15 @@ st.write(df)
 
 data = ref.get()
 
-data_dict = json.loads(data)
+data_dict = json.loads(json.dumps(data))
 
-# Iterate over the dictionary
 if data_dict:
     for key, value in data_dict.items():
-        # Display the data
         st.write('Key:', key)
         st.write('Name:', value['name'])
         st.write('Age:', value['age'])
         st.write('Email:', value['email'])
         st.write('---')
 else:
-    st.write('No data found')
+    st.write('No data found'))
 
