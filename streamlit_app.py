@@ -1,11 +1,15 @@
 import ipinfo
 
-access_token = "fd7290568d6d4f"  # 替换成你自己的 access token
-handler = ipinfo.getHandler(access_token)
+import requests
 
-details = handler.getDetails()
-latitude = details.latitude
-longitude = details.longitude
+def get_client_ip():
+    headers = requests.utils.default_headers()
+    headers.update({'User-Agent': 'Mozilla/5.0'})
+    ip_request = requests.get('https://api.ipify.org', headers=headers)
+    return ip_request.text
 
-print("Latitude:", latitude)
-print("Longitude:", longitude)
+client_ip = get_client_ip()
+print("Client IP Address:", client_ip)
+
+
+
