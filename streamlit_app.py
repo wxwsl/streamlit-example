@@ -24,7 +24,7 @@ except ValueError:
     pass
 
 # 写入数据
-####ref = db.reference('/')
+ref = db.reference('/')
 ###ref.set({
 #    'group1': {
  #######       'name': 'Group 1',
