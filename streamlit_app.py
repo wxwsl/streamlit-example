@@ -43,7 +43,7 @@ text_input = st.text_input("请输入您的文本")
 # 创建提交按钮
 if st.button("提交"):
     # 获取 Firestore 数据库的引用
-    db = firestore.client()
+    db = db.client()
 
     # 将文本保存到数据库
     doc_ref = db.collection("my_collection").document()
