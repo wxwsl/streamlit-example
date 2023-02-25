@@ -21,11 +21,4 @@ html_code = html('<script>{}</script>'.format(jscode))
 # 等待用户分享其位置
 location_json = st._get_streamlit_share_request('location')
 
-# 解析 JSON 数据并在 Streamlit 上显示
-if location_json:
-    location = json.loads(location_json['args']['location'])
-    st.write('Latitude:', location['latitude'])
-    st.write('Longitude:', location['longitude'])
-    st.write('Accuracy:', location['accuracy'])
-else:
-    st.write('No location data received.')
+
