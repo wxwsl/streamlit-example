@@ -43,7 +43,7 @@ text_input = st.text_input("请输入您的文本")
 # 创建提交按钮
 if st.button("提交"):
    
-    re.set({"text": text_input})
+    ref.set({"text": text_input})
 
     # 显示成功消息
     st.success("文本已保存到数据库！")
