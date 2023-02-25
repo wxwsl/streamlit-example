@@ -75,7 +75,7 @@ st.write(df)
 
 data = ref.get()
 
-data_dict = json.loads(json.dumps(data))
+data_dict = data
 
 if data_dict:
     for key, value in data_dict.items():
